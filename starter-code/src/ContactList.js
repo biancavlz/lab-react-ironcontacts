@@ -10,14 +10,14 @@ class ContactList extends React.Component {
                         <th>Name</th>
                         <th>Popularity</th>
                     </tr>
-                    {this.props.contacts.map(elem => {
+                    {this.props.contacts.map(el => {
                         return (
                             <tr>
                                 <td>
-                                    <img width="50" src={elem.pictureUrl} />
+                                    <img width="50" src={el.pictureUrl} />
                                 </td>
-                                <td> {elem.name} </td>
-                                <td>{elem.popularity.toFixed(2)}</td>
+                                <td> {el.name} </td>
+                                <td>{el.popularity.toFixed(2)}</td>
                             </tr>
                         )
                     })}
