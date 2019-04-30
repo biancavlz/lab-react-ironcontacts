@@ -1,23 +1,27 @@
 import React from 'react'
-import Contact from './Contact'
-import contacts from './contacts.json'
 
 class ContactList extends React.Component {
     render() {
-        const contactInfo = Object.keys(contacts)
-            .slice(0, 5)
-            .map(key => ({ [key]: contacts[key] }))
-        console.log(contactInfo)
-
         return (
             <table>
-                <tr>
-                    <th>Picture</th>
-                    <th>Name</th>
-                    <th>Popularity</th>
-                </tr>
-
-                <Contact />
+                <tbody>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Popularity</th>
+                    </tr>
+                    {this.props.contacts.map(elem => {
+                        return (
+                            <tr>
+                                <td>
+                                    <img width="50" src={elem.pictureUrl} />
+                                </td>
+                                <td> {elem.name} </td>
+                                <td>{elem.popularity.toFixed(2)}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
             </table>
         )
     }
